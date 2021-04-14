@@ -1,0 +1,42 @@
+main{
+    background: #000;
+    justify-content: center;
+    align-items: center;
+}
+.gradient{
+    height: 150px;
+    width: 1000px;
+    background: linear-gradient(0deg,#000,#262626);
+    position: relative;
+    border-radius: 5px;
+}
+
+.gradient::before,
+.gradient::after{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: linear-gradient(45deg,#fb0092,#0000ff,#00ff00,#ffff00,#ff0000,#fb0092,#0000ff,#00ff00,#ffff00,#ff0000);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    border-radius: 5px;
+    background-size: 400%;
+    animation: animate 30s linear infinite;
+}
+.gradient::after{
+    filter: blur(20px);
+}
+
+@keyframes animate{
+    0%{
+        background-position:0 300px;
+    }
+    50%{
+        background-position:900px 0;
+    }
+    100%{
+        background-position:0 300px;
+    }
+}

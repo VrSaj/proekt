@@ -1,0 +1,98 @@
+main{
+    background: linear-gradient(180deg, #000000, #490d5c, #03034b);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-menu{
+    background:linear-gradient(180deg,#19a5af,#000000)
+}
+a:hover {
+    color: #acc711;
+}
+.btn-menu.active{
+    background:linear-gradient(180deg,#16deeb,#000000)
+}
+.color{
+    color: white;
+    font-family: 18pt 'Oswald', sans-serif;
+}
+.btn-container{
+    background: black;
+}
+.logo{
+    height: 120px;
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
+}
+.btn{
+    height: 35px;
+    width: 170px;
+}
+h1{
+    color:white;
+    text-align: center;
+    font-family: jura;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.hit{
+    height: 150px;
+    width: 225px;
+}
+.hit2{
+    height: 150px;
+    width: 350px;
+    color: white;
+    font-family: jura;
+}
+.hit3{
+    height: 150px;
+    width: 425px;
+    color: white;
+    font-family: jura;
+}
+.market{
+    height: 150px;
+    width: 235px;
+    color: white;
+}
+
+.gradient{
+    height: 160px;
+    width: 1010px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.gradient::before,
+.gradient::after{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: linear-gradient(45deg,#fb0092,#0000ff,#00ff00,#ffff00,#ff0000,#fb0092,#0000ff,#00ff00,#ffff00,#ff0000);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    border-radius: 5px;
+    background-size: 400%;
+    animation: animate 30s linear infinite;
+}
+.gradient::after{
+    filter: blur(40px);
+}
+
+@keyframes animate{
+    0%{
+        background-position:0 300px;
+    }
+    50%{
+        background-position:900px 0;
+    }
+    100%{
+        background-position:0 300px;
+    }
+}
