@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style type="text/css">body{
+    position:relative;
+  }
+ #go{
+     margin-left: 50%;
+     margin-top: 5%;
+ }
+ #gog{
+     margin-left: 20%;
+ }
+ .roulette-inner img{
+   width:72px;
+   height:72px;
+   margin:2px;
+ }
+
+ .roulette-inner img.active{
+   border:2px solid rgba(89,0,153,.2);
+   box-sizing:border-box;
+   border-radius:50%;
+   padding:-4px 4px 2px 4px;
+   transform:scale(1.7);
+   z-index:1000;
+   background-color:rgba(0,255,127,.5);
+ }
+ </style>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+    jQuery.easing['easeOutCirc'] = function (x, t, b, c, d) {
+           return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+       }
+   $(function() {
+       var option = {
+           speed: 6,
+           duration: 3,
+           stopImageNumber: 4
+       };
+   
+    $("#go").click(function() {
+       option.stopImageNumber = Math.random() * 11|0;
+       $(".roulette-inner  img").removeClass("active");
+       $("#config").text(JSON.stringify(option));
+       $({
+           left: 0
+       }).animate({
+           left: 844 * option.speed + 75 * (option.stopImageNumber + 6)
+       }, {
+           duration: option.duration * 1000,
+           easing: "easeOutCirc",
+           step: function(a) {
+               $(".roulette-inner").css("transform", "translateX(-" + a % 844 + "px)");
+           },
+           complete: function() {
+               $(".roulette-inner  img").eq(option.stopImageNumber + (option.stopImageNumber < 6) * 11).addClass("active");
+           }
+       });
+     })
+   });
+     </script>
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>CyberBulling2077</title>
+  </head>
+  <body>
+    <div class="container-fluid btn-container">
+        <div class="container">
+          <div class="row align-items-center align-items-md-start align-items-lg-center justify-content-between" style="height: 125px;">
+            <img class="col-md-4 main__img--float logo" src="img/лого.png">
+            <a type="button" href="https://store.steampowered.com/login/?redir=%3Fl%3Drussian&redir_ssl=1&snr=1_4_4__global-header" target="_blank" class="btn btn-outline-success">Инвентарь</button></a>
+        </div>
+    </div>
+  </body>
+  <main class="did">
+   <div class="container">
+    <nav class="nav nav-pills nav-fill">
+        <a class="nav-link btn-menu color " href="index.html">Магазин</a>
+        <a class="nav-link btn-menu color " href="ruletka.html">Рулетка</a>
+        <a class="nav-link btn-menu color " href="loterea.html">Лотерея</a>
+    </nav>
+
+    <h1>Рандом</h1>
+<div id="gog" class="roulette" style="overflow: hidden; height: 126px; width: 844px;">
+<div class="roulette-inner" style="position: relative; top: 24px; width: 7000px;">
+<img src="YES/Dark souls 3.jpg" style="display: block; float: left;">
+<img src="YES/Dead by daylight.jpg" style="display: block; float: left;">
+<img src="YES/Max Payne 3.jpg" style="display: block; float: left;">
+<img src="YES/RDR2.jpg" style="display: block; float: left;">
+<img src="YES/Seaf thives.jpg" style="display: block; float: left;">
+<img src="YES/South Park.jpg" style="display: block; float: left;">
+<img src="YES/The Binding of Isaac.jpg" style="display: block; float: left;">
+<img src="YES/Wither 3.jpg" style="display: block; float: left;">
+<img src="YES/Yakuza Like a dragon.jpg" style="display: block; float: left;">
+<img src="YES/Payday2.jpg" style="display: block; float: left;">
+<img src="YES/Sherlock Holmes.jpg" style="display: block; float: left;">
+<img src="YES/Terraria.png" style="display: block; float: left;">
+<img src="YES/The Slormancer.jpg" style="display: block; float: left;">
+<img src="YES/CyberPunk.jpg" style="display: block; float: left;">
+<img src="YES/Borderlands 3.jpg" style="display: block; float: left;">
+<img src="YES/Darksiders2.jpg" style="display: block; float: left;">
+<img src="YES/FarCry.jpeg" style="display: block; float: left;">
+<img src="YES/Hat.jpg" style="display: block; float: left;">
+<img src="YES/Heavy Rain.jpg" style="display: block; float: left;">
+<img src="YES/Horizon.jpg" style="display: block; float: left;">
+<img src="YES/Hades.png" style="display: block; float: left;">
+<img src="YES/ittakestwo.jpg" style="display: block; float: left;">
+</div>
+</div>
+<button id="go" onclick="play()">Крутить</button>
+</body>
+
+
+
+   
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+</main>
+<footer>
+  
+    <h2>Связаться с нами можно с помощью:</h2>
+    <a href="https://vk.com/"><img class="fot" src="YES/VK-chb_t.png" target="_blank"></a>
+    <a href="https://web.telegram.org/#/login"><img class="fot" src="YES/telega.png" target="_blank"></a>
+    <a href="https://www.instagram.com/?hl=ru"><img class="fot" src="YES/инста.png" target="_blank"></a>
+
+</footer>
+</html>
